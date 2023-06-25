@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OccasionInvitation.Infrastructure\OccasionInvitation.Infrastructure.csproj" />
+    <ProjectReference Include="..\OccasionInvitation.Models\OccasionInvitation.Models.csproj" />
+  </ItemGroup>
+
 </Project>

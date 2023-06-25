@@ -1,4 +1,12 @@
+using OccasionInvitation.Web.Extensions.AutoMapperExtension;
+using OccasionInvitation.Web.Extensions.MediatorExtensions;
+using OccasionInvitation.Web.Extensions.ServiceExtensions;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.RegisterServices();
+builder.Services.RegisterAutoMapper();
+builder.Services.RegisterMediator();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
