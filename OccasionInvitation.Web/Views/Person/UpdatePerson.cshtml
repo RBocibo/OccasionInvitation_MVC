@@ -1,0 +1,132 @@
+﻿@using OccasionInvitation.Domain.Enums;
+@model OccasionInvitation.Domain.Entites.Person;
+
+@{
+    ViewData["Title"] = "Update Person";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" content="width=device-width" />
+    <title>Updates here</title>
+</head>
+<body>
+    <h1>Updates here</h1>
+    <form asp-controller="Person" method="post">
+        @using (Html.BeginForm())
+        {
+            @using (Html.BeginForm("UpdatePerson", "Person", "@Model.PersonId", FormMethod.Post))
+        {
+        <div>
+        @Html.LabelFor(model => model.Name, "Full Names:")
+        @Html.EditorFor(model => model.Name)
+        </div>
+        <br />
+        <div>
+        @Html.LabelFor(m => m.EmailAddress, "Email Address:")
+        @Html.EditorFor(m => m.EmailAddress)
+        </div>
+        <br />
+        <div>
+        @Html.LabelFor(m => m.PhoneNumber, "Phone Number:")
+        @Html.EditorFor(m => m.PhoneNumber)
+        </div>
+        <br />
+        <div>
+        @Html.LabelFor(m => m.isAdult, "Adult/Child")
+        @Html.DropDownListFor(m => m.isAdult, new SelectList(Enum.GetValues(typeof(CheckAgeEnum))), "Select Gender")
+        </div>
+        <br />
+        <div>
+        @Html.LabelFor(m => m.WillAttend, "Are you attending?")
+        @Html.DropDownListFor(m => m.WillAttend, new SelectList(Enum.GetValues(typeof(WillBeAttendingEnum))), "Choose response")
+        </div>
+        <br />
+        <button type="submit">Update</button>
+        }
+        }
+    </form>
+</body>
+</html>
+
+
+@*@using OccasionInvitation.Domain.Enums;
+@model OccasionInvitation.Models.DTOs.PersonDTO
+
+@{
+    ViewData["Title"] = "Update Here";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" content="width=device-width" />
+    <title>Occasion Invite</title>
+</head>
+<body>
+   @* <form asp-controller="Person" method="post">*@
+ @*   @using (Html.BeginForm("UpdatePerson", "Person","@Model.Id", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Name, "Full Names:")
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.EmailAddress, "Email Address:")
+        @Html.EditorFor(m => m.EmailAddress)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.PhoneNumber, "Phone Number:")
+        @Html.EditorFor(m => m.PhoneNumber)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.isAdult, "Adult/Child")
+        @Html.DropDownListFor(m => m.isAdult, new SelectList(Enum.GetValues(typeof(CheckAgeEnum))), "Select Gender")
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.WillAttend, "Are you attending?")
+        @Html.DropDownListFor(m => m.WillAttend, new SelectList(Enum.GetValues(typeof(WillBeAttendingEnum))), "Choose response")
+    </div>
+    <br />
+    <button type="submit">Update</button>
+}
+@*</form>*@
+
+@*@model OccasionInvitation.Models.DTOs.PersonDTO*@
+
+@*using (Html.BeginForm("UpdatePerson", "Person", FormMethod.Post))*@
+@*{
+    <div>
+        @Html.LabelFor(model => model.Name, "Full Names:")
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.EmailAddress, "Email Address:")
+        @Html.EditorFor(m => m.EmailAddress)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.PhoneNumber, "Phone Number:")
+        @Html.EditorFor(m => m.PhoneNumber)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.isAdult, "Adult/Child")
+        @Html.DropDownListFor(m => m.isAdult, new SelectList(Enum.GetValues(typeof(CheckAgeEnum))), "Select Gender")
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.WillAttend, "Are you attending?")
+        @Html.DropDownListFor(m => m.WillAttend, new SelectList(Enum.GetValues(typeof(WillBeAttendingEnum))), "Choose response")
+    </div>
+    <br />
+    <button type="submit">Update</button>
+}
+</body>
+</html>*@

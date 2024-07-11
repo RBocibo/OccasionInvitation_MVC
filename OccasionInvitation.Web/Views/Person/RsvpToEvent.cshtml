@@ -11,39 +11,48 @@
         <meta charset="utf-8" content="width=device-width"/>
         <title>Occasion Invite</title>
     </head>
-    <body>
-        <h1>Invites here</h1>
-        <form asp-controller="Person" method="post">
+    <body class="bg-gradient">
+        <h1 class="">Roseline Party Invites</h1>
             @using(Html.BeginForm())
             {
-                <div>
+                <div class="mb-3 row">
                     @Html.LabelFor(model => model.Name, "Full Names:")
                     @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
                 <br />
-                <div>
+                <div class="mb-3 row">
                     @Html.LabelFor(m => m.EmailAddress, "Email Address:")
                     @Html.EditorFor(m => m.EmailAddress)
+                    @Html.ValidationMessageFor(m => m.EmailAddress)
                 </div>
                 <br />
-                <div>
+                <div class="mb-3 row">
                     @Html.LabelFor(m => m.PhoneNumber, "Phone Number:")
                     @Html.EditorFor(m => m.PhoneNumber)
+                    @Html.ValidationMessageFor(m => m.PhoneNumber)
                 </div>
                 <br />
-                <div>
-                    @Html.LabelFor(m => m.isAdult, "Adult/Child")
-                    @Html.DropDownListFor(m => m.isAdult, new SelectList(Enum.GetValues(typeof(CheckAgeEnum))), "Select Gender")
+                <div class="mb-3 row ">
+                    @Html.LabelFor(m => m.isAdult, "Adult/Child:")
+                    <div class="mb-3 row dropdown-menu-dark">
+                        @Html.DropDownListFor(m => m.isAdult, new SelectList(Enum.GetValues(typeof(CheckAgeEnum))), "Select Gender")
+                        @Html.ValidationMessageFor(m => m.isAdult)
+                    </div>
                 </div>
                 <br />
-                <div>
+                <div class="mb-3 row">
                     @Html.LabelFor(m => m.WillAttend, "Are you attending?")
-                    @Html.DropDownListFor(m => m.WillAttend, new SelectList(Enum.GetValues(typeof(WillBeAttendingEnum))), "Choose response")
+                    <div class="mb-3 row dropdown-menu-dark drop">
+                        @Html.DropDownListFor(m => m.WillAttend, new SelectList(Enum.GetValues(typeof(WillBeAttendingEnum))), "Choose response")
+                        @Html.ValidationMessageFor(m => m.WillAttend)
+                    </div>
                 </div>
                 <br />
-            <button asp-controller="Person" asp-action="RsvpToEvent" type="submit">RSVP Button</button>
-            }
-        </form>
+                <div class="class=col-12">
+                    <button class="btn btn-primary" asp-controller="Person" asp-action="RsvpToEvent" type="submit">RSVP Button</button>
+                </div>
+         }
     </body>
 </html>
 
